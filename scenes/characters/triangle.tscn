@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dots52ehcchug"]
+
+[ext_resource type="Script" uid="uid://dws83ta6ksao7" path="res://scripts/characters/triangle.gd" id="1_8dnvv"]
+[ext_resource type="Texture2D" uid="uid://be3uj4d7eofb3" path="res://assets/images/sprites/triangle/0.png" id="2_b5iba"]
+
+[node name="Triangle" type="CharacterBody2D"]
+script = ExtResource("1_8dnvv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_b5iba")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-8, 8)
+scale = Vector2(1.59375, 1.59375)
+polygon = PackedVector2Array(0, -0.62745094, 0, 0, 10.039216, 0, 10.039216, -0.62745094, 5.019608, -10.039216)
