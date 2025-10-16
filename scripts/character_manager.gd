@@ -1,7 +1,9 @@
 extends Node
 class_name CharacterManager
 
-@onready var characters = [$Square, $Triangle]
+@onready var characters: Array = get_children().filter(func(c):
+	return c is CharacterBody2D	
+)
 var current_index = 0
 
 

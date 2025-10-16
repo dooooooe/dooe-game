@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=4 uid="uid://jqkmn013d5r3"]
+[gd_scene load_steps=10 format=4 uid="uid://jqkmn013d5r3"]
 
 [ext_resource type="PackedScene" uid="uid://cg0dvri80btpi" path="res://scenes/characters/square.tscn" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://bq4q1esua2sn7" path="res://scripts/camera.gd" id="2_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://d36au4ys2axxg" path="res://assets/images/tiles/wall/0.png" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://dots52ehcchug" path="res://scenes/characters/triangle.tscn" id="2_tbgi4"]
 [ext_resource type="Script" uid="uid://dxreu2be4m8kc" path="res://scripts/character_manager.gd" id="2_tefeu"]
+[ext_resource type="PackedScene" uid="uid://mltrg4uffcaw" path="res://scenes/characters/circle.tscn" id="5_tefeu"]
+[ext_resource type="PackedScene" uid="uid://bde6wx0aahys4" path="res://scenes/enemies/enemy.tscn" id="7_o6xl0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
 texture = ExtResource("2_sugp2")
@@ -28,7 +30,15 @@ script = ExtResource("2_tefeu")
 
 [node name="Triangle" parent="CharacterManager" instance=ExtResource("2_tbgi4")]
 
+[node name="Circle" parent="CharacterManager" instance=ExtResource("5_tefeu")]
+
 [node name="Camera2D" type="Camera2D" parent="CharacterManager" node_paths=PackedStringArray("char_manager")]
 position_smoothing_enabled = true
 script = ExtResource("2_jyhfs")
 char_manager = NodePath("..")
+
+[node name="Enemy" parent="." instance=ExtResource("7_o6xl0")]
+position = Vector2(222, 5)
+
+[node name="Enemy2" parent="." instance=ExtResource("7_o6xl0")]
+position = Vector2(138, -111)

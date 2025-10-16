@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dots52ehcchug"]
 
 [ext_resource type="Script" uid="uid://dws83ta6ksao7" path="res://scripts/characters/triangle.gd" id="1_8dnvv"]
-[ext_resource type="Texture2D" uid="uid://be3uj4d7eofb3" path="res://assets/images/sprites/triangle/0.png" id="2_b5iba"]
+[ext_resource type="Texture2D" uid="uid://be3uj4d7eofb3" path="res://assets/images/sprites/characters/triangle/0.png" id="2_b5iba"]
 
 [node name="Triangle" type="CharacterBody2D"]
 script = ExtResource("1_8dnvv")
