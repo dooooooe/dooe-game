@@ -28,6 +28,7 @@ script = ExtResource("2_tefeu")
 
 [node name="Triangle" parent="CharacterManager" instance=ExtResource("2_tbgi4")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="CharacterManager" node_paths=PackedStringArray("char_manager")]
 position_smoothing_enabled = true
 script = ExtResource("2_jyhfs")
+char_manager = NodePath("..")

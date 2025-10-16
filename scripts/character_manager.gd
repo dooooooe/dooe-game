@@ -1,7 +1,9 @@
 extends Node
+class_name CharacterManager
 
 @onready var characters = [$Square, $Triangle]
 var current_index = 0
+
 
 func _ready():
 	for i in range(characters.size()):
@@ -11,9 +13,11 @@ func _ready():
 		else:
 			characters[i].deactivate()
 
+
 func _process(_delta):
 	if Input.is_action_just_pressed("swap_character"):
 		swap_character()
+
 
 func swap_character():
 	var old_char = characters[current_index]
@@ -24,3 +28,7 @@ func swap_character():
 
 	old_char.deactivate()
 	new_char.activate()
+
+
+func get_active_character():
+	return characters[current_index]

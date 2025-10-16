@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var SPEED = 150
 @export var JUMP_FORCE = -200
 @export var GRAVITY = 900
+@export var TERMINAL_VELOCITY = 1000
 @export var MAX_JUMP_TIME = 0.1
 @export var COYOTE_TIME = 0.1
 
@@ -16,18 +17,26 @@ func _physics_process(delta):
 		global_position = Vector2(0, 0)
 	
 	# gravity
-	if not is_on_floor():
-		velocity.y += GRAVITY * delta
-
+	_apply_gravity(delta)
+	
 	# left right inputs
-	var dir = Input.get_axis("move_left", "move_right")
-	velocity.x = dir * SPEED
+	_handle_horizontal_input(delta)
 
 	# yump
 	_handle_jump(delta)
 
 	# do physics stuff
 	move_and_slide()
+
+
+func _apply_gravity(delta):
+	if not is_on_floor():
+		velocity.y = min(velocity.y + GRAVITY * delta, TERMINAL_VELOCITY)
+
+
+func _handle_horizontal_input(delta):
+	var dir = Input.get_axis("move_left", "move_right")
+	velocity.x = dir * SPEED
 
 
 func _handle_jump(delta):
@@ -63,7 +72,6 @@ func sync_with(character: CharacterBody2D):
 func activate():
 	visible = true
 	set_physics_process(true)
-	velocity = Vector2.ZERO
 
 	for child in get_children():
 		if child is CollisionShape2D or child is CollisionPolygon2D:
