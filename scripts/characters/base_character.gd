@@ -6,11 +6,14 @@ extends CharacterBody2D
 @export var TERMINAL_VELOCITY = 1000
 @export var MAX_JUMP_TIME = 0.3
 @export var COYOTE_TIME = 0.1
+@export var MAX_HP = 20
 
 var is_jumping = false
 var extra_jump = false
 var jump_timer = 0.0
 var coyote_timer = COYOTE_TIME
+
+var hp = MAX_HP
 
 func _physics_process(delta):
 	# reset (debug)

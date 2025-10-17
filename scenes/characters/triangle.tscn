@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://be3uj4d7eofb3" path="res://assets/images/sprites/characters/triangle/0.png" id="2_b5iba"]
 
 [node name="Triangle" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_8dnvv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
