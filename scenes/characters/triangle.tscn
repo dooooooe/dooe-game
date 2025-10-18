@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dots52ehcchug"]
+[gd_scene load_steps=4 format=3 uid="uid://dots52ehcchug"]
 
 [ext_resource type="Script" uid="uid://dws83ta6ksao7" path="res://scripts/characters/triangle.gd" id="1_8dnvv"]
-[ext_resource type="Texture2D" uid="uid://be3uj4d7eofb3" path="res://assets/images/sprites/characters/triangle/0.png" id="2_b5iba"]
+[ext_resource type="Texture2D" uid="uid://c5umi7nhn4gbv" path="res://assets/images/sprites/characters/triangle/0.png" id="2_b5iba"]
+[ext_resource type="PackedScene" uid="uid://4xdvg3aqvtx0" path="res://scenes/hibolxes/hitbox.tscn" id="3_b5iba"]
 
 [node name="Triangle" type="CharacterBody2D"]
 collision_layer = 2
@@ -11,6 +12,13 @@ script = ExtResource("1_8dnvv")
 texture = ExtResource("2_b5iba")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-8, 8)
+scale = Vector2(1.59375, 1.59375)
+polygon = PackedVector2Array(0, -0.62745094, 0, 0, 10.039216, 0, 10.039216, -0.62745094, 5.019608, -10.039216)
+
+[node name="Hitbox" parent="." instance=ExtResource("3_b5iba")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
 position = Vector2(-8, 8)
 scale = Vector2(1.59375, 1.59375)
 polygon = PackedVector2Array(0, -0.62745094, 0, 0, 10.039216, 0, 10.039216, -0.62745094, 5.019608, -10.039216)

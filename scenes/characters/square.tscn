@@ -1,9 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cg0dvri80btpi"]
+[gd_scene load_steps=6 format=3 uid="uid://cg0dvri80btpi"]
 
 [ext_resource type="Script" uid="uid://c1hr5hivxtryc" path="res://scripts/characters/square.gd" id="1_uo7gd"]
-[ext_resource type="Texture2D" uid="uid://br3gs4opnobj5" path="res://assets/images/sprites/characters/square/0.png" id="2_gnpv8"]
+[ext_resource type="Texture2D" uid="uid://rieedubjyle8" path="res://assets/images/sprites/characters/square/0.png" id="2_gnpv8"]
+[ext_resource type="PackedScene" uid="uid://4xdvg3aqvtx0" path="res://scenes/hibolxes/hitbox.tscn" id="3_gnpv8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gnpv8"]
 size = Vector2(16, 16)
 
 [node name="Square" type="CharacterBody2D"]
@@ -15,3 +19,8 @@ texture = ExtResource("2_gnpv8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="Hitbox" parent="." instance=ExtResource("3_gnpv8")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" groups=["hitbox"]]
+shape = SubResource("RectangleShape2D_gnpv8")

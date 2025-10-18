@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var TERMINAL_VELOCITY = 1000
 @export var MAX_JUMP_TIME = 0.3
 @export var COYOTE_TIME = 0.1
-@export var MAX_HP = 20
+@export var MAX_HP = 20 # miencraft
 
 var is_jumping = false
 var extra_jump = false
@@ -19,7 +19,10 @@ func _physics_process(delta):
 	# reset (debug)
 	if Globals.DEBUG and Input.is_key_pressed(KEY_R):
 		global_position = Vector2(0, 0)
+		print("RESET!!!!REMIX")
 	
+	if hp <= 0:
+		get_tree().reload_current_scene()
 	# gravity
 	_apply_gravity(delta)
 	
@@ -31,6 +34,7 @@ func _physics_process(delta):
 
 	# do physics stuff
 	move_and_slide()
+	
 
 
 func _apply_gravity(delta):
@@ -93,3 +97,8 @@ func deactivate():
 	for child in get_children():
 		if child is CollisionShape2D or child is CollisionPolygon2D:
 			child.disabled = true
+
+func take_damage(damage):
+	hp = hp - damage
+	if Globals.DEBUG:
+		print(hp)

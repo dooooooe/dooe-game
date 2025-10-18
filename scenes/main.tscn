@@ -23,14 +23,14 @@ sources/0 = SubResource("TileSetAtlasSource_jyhfs")
 tile_map_data = PackedByteArray("AAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAD9/wEAAAAAAAAAAAD8/wEAAAAAAAAAAAD7/wEAAAAAAAAAAAD6/wEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAD5/wEAAAAAAAAAAAAGAAEAAAAAAAAAAAACAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAP//AAAAAAAAAAAGAAAAAAAAAAAAAAAGAP//AAAAAAAAAAAGAP7/AAAAAAAAAAAHAAEAAAAAAAAAAAAIAAEAAAAAAAAAAAAJAAEAAAAAAAAAAAAKAAEAAAAAAAAAAAALAAEAAAAAAAAAAAAMAAEAAAAAAAAAAAANAAEAAAAAAAAAAAAOAAEAAAAAAAAAAAAPAAEAAAAAAAAAAAD4/wEAAAAAAAAAAAD3/wEAAAAAAAAAAAD2/wEAAAAAAAAAAAAEAPr/AAAAAAAAAAAFAPr/AAAAAAAAAAAGAPr/AAAAAAAAAAAHAPr/AAAAAAAAAAAIAPr/AAAAAAAAAAAIAP3/AAAAAAAAAAAIAP7/AAAAAAAAAAAIAP//AAAAAAAAAAAIAAAAAAAAAAAAAAAJAPr/AAAAAAAAAAAKAPr/AAAAAAAAAAALAPr/AAAAAAAAAAAMAPr/AAAAAAAAAAALAP//AAAAAAAAAAALAAAAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_tbgi4")
 
-[node name="CharacterManager" type="Node" parent="."]
+[node name="CharacterManager" type="Node" parent="." groups=["playuer"]]
 script = ExtResource("2_tefeu")
 
-[node name="Square" parent="CharacterManager" instance=ExtResource("1_0wfyh")]
+[node name="Square" parent="CharacterManager" groups=["playuer"] instance=ExtResource("1_0wfyh")]
 
-[node name="Triangle" parent="CharacterManager" instance=ExtResource("2_tbgi4")]
+[node name="Triangle" parent="CharacterManager" groups=["playuer"] instance=ExtResource("2_tbgi4")]
 
-[node name="Circle" parent="CharacterManager" instance=ExtResource("5_tefeu")]
+[node name="Circle" parent="CharacterManager" groups=["playuer"] instance=ExtResource("5_tefeu")]
 
 [node name="Camera2D" type="Camera2D" parent="CharacterManager" node_paths=PackedStringArray("char_manager")]
 position_smoothing_enabled = true

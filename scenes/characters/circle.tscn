@@ -1,9 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://mltrg4uffcaw"]
+[gd_scene load_steps=7 format=3 uid="uid://mltrg4uffcaw"]
 
 [ext_resource type="Script" uid="uid://djvv6wn3juklc" path="res://scripts/characters/circle.gd" id="1_7red2"]
-[ext_resource type="Texture2D" uid="uid://b1g55yqer36pa" path="res://assets/images/sprites/characters/circle/0.png" id="1_08m5d"]
+[ext_resource type="Texture2D" uid="uid://dk7op8o5sdncx" path="res://assets/images/sprites/characters/circle/0.png" id="1_08m5d"]
+[ext_resource type="PackedScene" uid="uid://4xdvg3aqvtx0" path="res://scenes/hibolxes/hitbox.tscn" id="3_2e3gv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7red2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7red2"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2e3gv"]
 radius = 8.0
 
 [node name="Circle" type="CharacterBody2D"]
@@ -11,7 +17,13 @@ collision_layer = 2
 script = ExtResource("1_7red2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_7red2")
 texture = ExtResource("1_08m5d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7red2")
+
+[node name="Hitbox" parent="." instance=ExtResource("3_2e3gv")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_2e3gv")
