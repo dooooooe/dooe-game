@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://mltrg4uffcaw"]
 
 [ext_resource type="Script" uid="uid://djvv6wn3juklc" path="res://scripts/characters/circle.gd" id="1_7red2"]
-[ext_resource type="Texture2D" uid="uid://dk7op8o5sdncx" path="res://assets/images/sprites/characters/circle/0.png" id="1_08m5d"]
-[ext_resource type="PackedScene" uid="uid://4xdvg3aqvtx0" path="res://scenes/hibolxes/hitbox.tscn" id="3_2e3gv"]
+[ext_resource type="Texture2D" uid="uid://b1g55yqer36pa" path="res://assets/images/sprites/characters/circle/0.png" id="1_08m5d"]
+[ext_resource type="PackedScene" uid="uid://4xdvg3aqvtx0" path="res://scenes/hitboxes/hitbox.tscn" id="3_2e3gv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7red2"]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bo2wbq3txh3yn" path="res://assets/images/sprites/enemies/enemy/enemy.png" id="1_6xk8f"]
 [ext_resource type="Script" uid="uid://t86pdncretci" path="res://scripts/enemies/enemy.gd" id="1_8e3ao"]
-[ext_resource type="PackedScene" uid="uid://f7gl4kmknl74" path="res://scenes/hibolxes/hurtbox.tscn" id="3_38ino"]
+[ext_resource type="PackedScene" uid="uid://f7gl4kmknl74" path="res://scenes/hitboxes/hurtbox.tscn" id="3_38ino"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8e3ao"]
 size = Vector2(16, 16)

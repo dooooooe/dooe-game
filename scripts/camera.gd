@@ -22,7 +22,7 @@ func _input(event):
 		zoom.y = clamp(zoom.y, MIN_ZOOM.y, MAX_ZOOM.y)
 
 
-func _process(delta):
+func _process(_delta):
 	if char_manager:
 		var active_char = char_manager.get_active_character()
 		if active_char:

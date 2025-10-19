@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://lvkvgcoojtgo"]
+
+[ext_resource type="Script" uid="uid://d08jhb1j15ugm" path="res://scripts/UI.gd" id="1_0wsoe"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_0wsoe")
+
+[node name="HpLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 50
+text = "YOUR HP: 0"

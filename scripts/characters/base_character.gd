@@ -17,7 +17,7 @@ var hp = MAX_HP
 
 func _physics_process(delta):
 	# reset (debug)
-	if Globals.DEBUG and Input.is_key_pressed(KEY_R):
+	if Globals.DEBUG and Input.is_action_just_pressed("reset"):
 		global_position = Vector2(0, 0)
 		print("RESET!!!!REMIX")
 	
@@ -34,7 +34,6 @@ func _physics_process(delta):
 
 	# do physics stuff
 	move_and_slide()
-	
 
 
 func _apply_gravity(delta):
@@ -42,7 +41,7 @@ func _apply_gravity(delta):
 		velocity.y = min(velocity.y + GRAVITY * delta, TERMINAL_VELOCITY)
 
 
-func _handle_horizontal_input(delta):
+func _handle_horizontal_input(_delta):
 	var dir = Input.get_axis("move_left", "move_right")
 	velocity.x = dir * SPEED
 
