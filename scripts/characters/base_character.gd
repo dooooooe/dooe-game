@@ -20,9 +20,7 @@ func _physics_process(delta):
 	if Globals.DEBUG and Input.is_action_just_pressed("reset"):
 		global_position = Vector2(0, 0)
 		print("RESET!!!!REMIX")
-	
-	if hp <= 0:
-		get_tree().reload_current_scene()
+
 	# gravity
 	_apply_gravity(delta)
 	
@@ -72,6 +70,23 @@ func _handle_jump(delta):
 			is_jumping = false
 
 
+func take_damage(damage):
+	hp = hp - damage
+	if hp <= 0:
+		die()
+
+	if Globals.DEBUG:
+		print(hp)
+
+
+func die():
+	call_deferred("_reload_scene")
+	
+	
+func _reload_scene():
+	get_tree().reload_current_scene()
+
+
 func sync_with(character: CharacterBody2D):
 	global_position = character.global_position
 	velocity = character.velocity
@@ -79,25 +94,26 @@ func sync_with(character: CharacterBody2D):
 
 func activate():
 	visible = true
+	velocity = Vector2.ZERO
 	set_physics_process(true)
-
-	for child in get_children():
-		if child is CollisionShape2D or child is CollisionPolygon2D:
-			child.disabled = false
-			
+	toggle_colliders(true)
 	extra_jump = true
 
 
 func deactivate():
 	visible = false
-	set_physics_process(false)
 	velocity = Vector2.ZERO
+	set_physics_process(false)
+	toggle_colliders(false)
 
+
+func toggle_colliders(active: bool):
 	for child in get_children():
+		# disable physics colliders
 		if child is CollisionShape2D or child is CollisionPolygon2D:
-			child.disabled = true
-
-func take_damage(damage):
-	hp = hp - damage
-	if Globals.DEBUG:
-		print(hp)
+			child.disabled = not active
+			
+		# disable hitboxes/hurtboxes
+		if child is Area2D:
+			child.monitoring = active
+			child.monitorable = active

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://be3uj4d7eofb3" path="res://assets/images/sprites/characters/triangle/0.png" id="2_b5iba"]
 [ext_resource type="PackedScene" uid="uid://4xdvg3aqvtx0" path="res://scenes/hitboxes/hitbox.tscn" id="3_b5iba"]
 
-[node name="Triangle" type="CharacterBody2D"]
+[node name="Triangle" type="CharacterBody2D" groups=["team_player"]]
 collision_layer = 2
 script = ExtResource("1_8dnvv")
 

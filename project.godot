@@ -28,6 +28,9 @@ version_control/autoload_on_startup=true
 
 hitbox=""
 hurtbox=""
+team_enemy=""
+team_player=""
+team_neutral=""
 
 [input]
 
